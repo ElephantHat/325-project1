@@ -51,7 +51,7 @@ for h in range(len(A)):
 
         #Algorithm 3
         time1 = datetime.datetime.utcnow()
-        alg3.maxSubArray(A[h][i])
+        alg3.maxSubArray(A[h][i], 0, len(A[h][i])-1)
         time2 = datetime.datetime.utcnow()
         finaltime = (time2 - time1)
         al3[h][len(A[h][i])] = finaltime.microseconds

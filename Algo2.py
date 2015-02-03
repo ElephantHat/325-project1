@@ -16,7 +16,7 @@ def maxSubArray(ar):
                     last=j
                     maxSum=tempSum
 
-    print ("Alg2: ", ar , ar[first:last+1], maxSum)
+#    print ("Alg2: ", ar , ar[first:last+1], maxSum)
 
 
 '''
