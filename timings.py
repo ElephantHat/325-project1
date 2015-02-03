@@ -22,7 +22,10 @@ for h in range(10):
         A[h].append(ar)
 
 #do timings
-al1 = al2 = al3 = al4 = []
+al1 = []
+al2 = []
+al3 = []
+al4 = []
 
 for h in range(len(A)):
     al1.append({})
@@ -30,8 +33,9 @@ for h in range(len(A)):
     al3.append({})
     al4.append({})
     for i in range(len(A[h])):
+
         #Algorithm 1
-        if i > 9:
+        if i < 9:
             time1 = datetime.datetime.utcnow()
             alg1.maxSubArray(A[h][i])
             time2 = datetime.datetime.utcnow()
@@ -41,13 +45,15 @@ for h in range(len(A)):
             al1[h][len(A[h][i])] = 0
 
 
-
         #Algorithm 2
+#        if i < 9:
         time1 = datetime.datetime.utcnow()
         alg2.maxSubArray(A[h][i])
         time2 = datetime.datetime.utcnow()
         finaltime = (time2 - time1)
         al2[h][len(A[h][i])] = finaltime.microseconds
+#        else:
+#            al2[h][len(A[h][i])] = 0
 
         #Algorithm 3
         time1 = datetime.datetime.utcnow()
@@ -55,7 +61,6 @@ for h in range(len(A)):
         time2 = datetime.datetime.utcnow()
         finaltime = (time2 - time1)
         al3[h][len(A[h][i])] = finaltime.microseconds
-
 
 #get averages for alg1
 averages = {}
@@ -65,7 +70,8 @@ for i in range(100, 1000, 100):
 for i in range(1000, 10000, 1000):
     averages[i] = 0
 
-total = 0
+
+total = 0.0
 for i in al1:
     total+=1
     for j in range(100, 1000, 100):
@@ -74,15 +80,14 @@ for i in al1:
     for j in range(1000, 10000, 1000):
         averages[j] += i[j]
 
-for i in averages:
-    for j in range(100, 400, 100):
-        i[j] = i[j]/total
+print "Algorithm 1 Averages: "
+for j in range(100, 1000, 100):
+    print j, averages[j]/total
 
-    for j in range(1000, 10000, 1000):
-        i[j] = i[j]/total
+for j in range(1000, 10000, 1000):
+    print j, averages[j]/total
 
-print "Algorithm 1 Timings : ", al1
-print "Algorithm 1 Averages: ", averages
+#print "Algorithm 1 Timings : ", al1
 
 #get averages for alg2
 averages = {}
@@ -92,7 +97,7 @@ for i in range(100, 1000, 100):
 for i in range(1000, 10000, 1000):
     averages[i] = 0
 
-total = 0
+total = 0.0
 for i in al2:
     total+=1
     for j in range(100, 1000, 100):
@@ -101,15 +106,15 @@ for i in al2:
     for j in range(1000, 10000, 1000):
         averages[j] += i[j]
 
-for i in averages:
-    for j in range(100, 400, 100):
-        i[j] = i[j]/total
+print "Algorithm 2 Averages: "
+for j in range(100, 1000, 100):
+    print j, averages[j]/total
 
-    for j in range(1000, 10000, 1000):
-        i[j] = i[j]/total
+for j in range(1000, 10000, 1000):
+   print j, averages[j]/total
 
-print "Algorithm 2 Timings : ", al2
-print "Algorithm 2 Averages: ", averages
+
+#print "Algorithm 2 Timings : ", al2
 
 #get averages for alg3
 averages = {}
@@ -119,7 +124,7 @@ for i in range(100, 1000, 100):
 for i in range(1000, 10000, 1000):
     averages[i] = 0
 
-total = 0
+total = 0.0
 for i in al3:
     total+=1
     for j in range(100, 1000, 100):
@@ -128,13 +133,13 @@ for i in al3:
     for j in range(1000, 10000, 1000):
         averages[j] += i[j]
 
-for i in averages:
-    for j in range(100, 400, 100):
-        i[j] = i[j]/total
+print "Algorithm 3 Averages: "
+for j in range(100, 1000, 100):
+    print j, averages[j]/total
 
-    for j in range(1000, 10000, 1000):
-        i[j] = i[j]/total
+for j in range(1000, 10000, 1000):
+    print j, averages[j]/total
 
-print "Algorithm 3 Timings : ", al3
-print "Algorithm 3 Averages: ", averages
+
+#print "Algorithm 3 Timings : ", al3
 
