@@ -35,7 +35,7 @@ for h in range(len(A)):
     for i in range(len(A[h])):
 
         #Algorithm 1
-        if i < 9:
+        if i < 29:
             time1 = datetime.datetime.utcnow()
             alg1.maxSubArray(A[h][i])
             time2 = datetime.datetime.utcnow()
